@@ -1,15 +1,25 @@
 SOURCEFILE = prog.js
 TARGETFILE = vcs_prog
 
-hello:
-	echo "This is Makefile for Node.JS Binary"
+default: help
 
-build:
+help:
+	echo "This is Makefile for Node.js Binary"
+
+init: setup build run
+
+setup:
 	sudo apt install npm -y
 	sudo npm install pkg
+
+build:
 	pkg $(SOURCEFILE) -t node10-linux-x64 -o $(TARGETFILE)
 
 run:
 	./$(TARGETFILE)
 
-all: hello build run
+rerun: build run
+
+clean:
+	$(RM) $(TARGETFILE)
+

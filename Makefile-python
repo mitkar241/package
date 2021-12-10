@@ -1,17 +1,26 @@
 SOURCEFILE = prog.py
 TARGETFILE = vcs_prog
 
-hello:
+default: help
+
+help:
 	echo "This is Makefile for Python Binary"
 
-build:
+init: setup build run
+
+setup:
 	sudo apt install python3-dev -y
 	sudo apt install python3-pip -y
 	sudo pip3 install pyinstaller
-	pyinstaller --version
-	pyinstaller $(SOURCEFILE) --onefile --name dist/$(TARGETFILE)
+
+build:
+	pyinstaller $(SOURCEFILE) --onefile --name $(TARGETFILE)
 
 run:
 	dist/$(TARGETFILE)
 
-all: hello build run
+rerun: build run
+
+clean:
+	rm -rf build dist __pycache__ *.spec
+

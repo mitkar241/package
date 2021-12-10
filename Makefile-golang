@@ -1,8 +1,12 @@
 SOURCEFILE = prog.go
 TARGETFILE = vcs_prog
 
-hello:
+default: help
+
+help:
 	echo "This is Makefile for Golang Binary"
+
+init: build run
 
 build:
 	go build -o bin/$(TARGETFILE) $(SOURCEFILE)
@@ -10,4 +14,8 @@ build:
 run:
 	bin/$(TARGETFILE)
 
-all: hello build run
+rerun: build run
+
+clean:
+	$(RM) bin/$(TARGETFILE)
+
