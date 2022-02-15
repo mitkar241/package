@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 # desc
 
+<<DESC
+Bootstrapping a software project requires special considerations,
+especially when the product concept isn't completely defined.
+As one undertakes a project, many of the pieces that need to be built may not be fully designed or completely developed.
+All of this wreaks havoc on a development schedule.
+Bootstrapping is the process of getting a software development project moving from a standing start. 
+DESC
+
 # exit when a command fails
 set -o errexit
 
