@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# desc
 
 <<DESC
 Bootstrapping a software project requires special considerations,
